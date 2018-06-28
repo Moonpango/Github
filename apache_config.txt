@@ -1,0 +1,35 @@
+1. mkdir  /etc/abc
+2. gedit /etc/abc/1.html
+3. 1.html    created
+4. gedit /etc/apache2/apache2.conf  에 
+<Directory /etc/abc/>
+	Options Indexes FollowSymLinks
+	AllowOverride All
+	Require all granted
+</Directory> 추가
+
+5. gedit /etc/apache2/sites-available/000-default.conf 에 
+   DocumentRoot /etc/abc 로 수정
+
+6.gedit /etc/apache2/sites-available/default-ssl.conf 에
+  DocumentRoot /etc/abc 로 수정
+
+
+127.0.0.1/i.html 한결과  1.html 잘 나옴!!!!
+
+-0----------------------------------------------------------ㅣㄴ
+
+1. gedit /etc/apache2/apache2.conf  에 
+<Directory /media/sf_aaa/>
+	Options Indexes FollowSymLinks
+	AllowOverride All
+	Require all granted
+</Directory> 로 수정       *sf_aaa  :  마운트된 공유폴더
+
+2.gedit /etc/apache2/sites-available/000-default.conf 에 
+   DocumentRoot /media/sf_aaa로 수정
+
+3.gedit /etc/apache2/sites-available/default-ssl.conf 에 
+   DocumentRoot /media/sf_aaa로 수정
+
+4. 127.0.0.1/index.php   잘 나옴
